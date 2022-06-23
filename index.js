@@ -3,9 +3,10 @@ const app = express();
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
-  service: "outlook",
-  auth: { user: "phosphorland.dev@outlook.com", pass: "Test@2022" },
-  tls: { rejectUnauthorized: false },
+  host: "mail.aerio.cloud",
+  port: 587,
+  secure: false,
+  auth: { user: "phosphor@bogi.si", pass: "Test1234" },
 });
 
 app.use(cors({ origin: "*", methods: ["GET", "POST"] }));
@@ -22,8 +23,8 @@ app.post("/post", (req, res) => {
     "Message: " +
     req.body.text;
   const mailOptions = {
-    from: "phosphorland.dev@outlook.com",
-    to: "phosphorland.dev@outlook.com",
+    from: "phosphor@bogi.si",
+    to: "phosphor@bogi.si",
     subject: req.body.fullname,
     text: text,
   };
