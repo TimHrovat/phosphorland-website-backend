@@ -30,7 +30,11 @@ app.post("/post", (req, res) => {
 
   transporter.sendMail(mailOptions, (error, suc) => {
     if (error) {
+      console.log("There was an error");
       console.log(error);
+    } else {
+      console.log("Sending successful");
+      console.log(suc);
     }
   });
 
